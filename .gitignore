@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Build artifacts / generated decks
+**/output/
+
+# Skill authoring / optimization scratch (not part of the skill)
+*-workspace/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
