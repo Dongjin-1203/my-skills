@@ -1,0 +1,4 @@
+interface:
+  display_name: "커리큘럼 설계·자료 조사"
+  short_description: "커리큘럼 확인, 블록별 설계, 자료 조사 결과를 md로 저장"
+  default_prompt: "$curriculum-to-lesson을 사용해 분야와 수강생을 먼저 확인하고, 커리큘럼과 타임테이블을 정한 뒤 블록별 조사 결과와 제작 지시문을 설계 폴더에 저장해줘."

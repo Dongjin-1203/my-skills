@@ -1,0 +1,4 @@
+interface:
+  display_name: "교육자료 신규 제작"
+  short_description: "제작 지시문과 조사 결과로 교안과 실습 자료 제작"
+  default_prompt: "$edu-create를 사용해 설계 폴더의 제작 지시문과 조사 결과를 읽고 교안과 수강생 자료를 제작해줘."
