@@ -13,6 +13,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   좌표·색·폰트 등 저수준 그리기는 전부 `deck_kit.py`에 모여 있다. 새 슬라이드 타입은
   빌더 함수 추가 + `REGISTRY` 등록 + `references/slide_types.md` 문서화의 3단계로 넣는다.
 
+- **교육자료 스킬 4종** — 인문·사회·경영 강사용. 특정 AI에 묶이지 않고 Codex·Claude Code 같은
+  에이전트 환경을 기본 대상으로 하되 대화 전용 AI에서도 동작한다. 스크립트·해시·업체 템플릿 의존 없음.
+  모든 스킬은 시작 시 **분야(도메인)를 한 번 질문**해 채운다. 흐름은 아래 순서다.
+  - **`curriculum-to-lesson/`** — 커리큘럼 확인(없으면 질의응답), 타임테이블·블록 설계, 블록별 자료 조사.
+    `설계/00_제작지시문.md`와 `설계/조사/B01_*.md`를 만든다.
+  - **`edu-create/`** — 위 두 산출물을 읽어 교안과 수강생 자료를 신규 제작하고 자체 검증한다.
+  - **`education-prep/`** — 기존 자료의 분석·진행안·승인 후 수정·배포 목록 준비.
+  - **`education-review/`** — 진행안·수정본 독립 검수(읽기 전용, 별도 세션).
+  `education-prep`과 `education-review`의 `references/standards.md`는 **동일 사본**이므로
+  한쪽을 고치면 다른 쪽도 같이 고친다.
+
 새 스킬을 추가할 때는 최상위에 폴더를 만들고 같은 구조(`SKILL.md` + 필요시
 `scripts/`·`references/`·`assets/`)를 따른다.
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "교육자료 준비·수정"
+  short_description: "기존 교육자료 분석, 진행안, 승인 후 수정, 배포 준비"
+  default_prompt: "$education-prep을 사용해 기존 교육자료를 분석하고 차시별 진행안과 수정 계획을 만들어줘."
