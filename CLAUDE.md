@@ -8,11 +8,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 최상위 폴더 하나가 스킬 하나이고, 그 안의 `SKILL.md`가 진입점이다.
 
 현재 수록 스킬:
-- **`Auto-PPT-Generator/`** — 콘텐츠 JSON → PowerPoint(.pptx) 범용 덱 생성기.
-  `scripts/engine.py`가 JSON을 받아 `builders.py`의 14종 슬라이드 빌더로 조립하고,
-  좌표·색·폰트 등 저수준 그리기는 전부 `deck_kit.py`에 모여 있다. 새 슬라이드 타입은
-  빌더 함수 추가 + `REGISTRY` 등록 + `references/slide_types.md` 문서화의 3단계로 넣는다.
-
 - **교육자료 스킬 4종** — 인문·사회·경영 강사용. 특정 AI에 묶이지 않고 Codex·Claude Code 같은
   에이전트 환경을 기본 대상으로 하되 대화 전용 AI에서도 동작한다. 스크립트·해시·업체 템플릿 의존 없음.
   모든 스킬은 시작 시 **분야(도메인)를 한 번 질문**해 채운다. 흐름은 아래 순서다.
@@ -37,27 +32,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   `gh repo create`, `gh pr` 등을 우선 사용.
 - 커밋 / 푸시는 명시적으로 요청받았을 때만 수행한다. 저장소를 새로 시작할 때는 기본 브랜치에서
   바로 작업한다고 가정하지 말고, 저장소를 만들고 브랜치에서 커밋할 것.
-
-## 빌드 / 검증 (Auto-PPT-Generator)
-
-```bash
-pip install python-pptx           # 의존성
-cd Auto-PPT-Generator/scripts
-python engine.py ../assets/report_template.json ../output/demo.pptx
-```
-엔진은 출력 폴더를 자동 생성하고, 슬라이드 하나가 실패해도 그 슬라이드에만 에러 표식을
-남긴 뒤 나머지를 계속 생성하며 경고를 stdout에 출력한다. 즉 **"OK ->" 뒤에 경고가 없어야
-정상**이다.
-
-레이아웃 변경은 눈으로 확인하는 게 가장 확실하다. PowerPoint가 설치된 Windows에서는
-`pywin32`로 슬라이드를 PNG로 내보내 검수할 수 있다 (경로는 반드시 절대경로):
-```python
-import win32com.client, os
-app = win32com.client.Dispatch("PowerPoint.Application")
-pres = app.Presentations.Open(os.path.abspath("../output/demo.pptx"), WithWindow=False)
-pres.Export(os.path.abspath("../output/preview"), "PNG")
-pres.Close(); app.Quit()
-```
 
 ## 스킬 구조 규약
 
